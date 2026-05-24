@@ -1,0 +1,228 @@
+/* Pharmasuticals marketing site — small set of extras on top of Tailwind CDN */
+
+:root {
+  --brand: #047857; /* emerald-700 */
+  --brand-hover: #065f46;
+  --ink: #0f172a; /* slate-900 */
+  --ink-2: #334155; /* slate-700 */
+  --muted: #64748b; /* slate-500 */
+  --line: #e2e8f0; /* slate-200 */
+  --bg-soft: #f8fafc; /* slate-50 */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family:
+    "Inter",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  color: var(--ink);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Brand-coloured text selection — replaces the default blue highlight */
+::selection {
+  background: rgba(4, 120, 87, 0.22);
+  color: var(--ink);
+}
+::-moz-selection {
+  background: rgba(4, 120, 87, 0.22);
+  color: var(--ink);
+}
+
+/* Brand-coloured focus ring for buttons + links (keyboard-only) */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Logo mark — small inline SVG style */
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--brand);
+  color: #ffffff;
+}
+
+/* Section spacing helpers */
+.section {
+  padding: 80px 0;
+}
+@media (max-width: 768px) {
+  .section {
+    padding: 56px 0;
+  }
+}
+
+/* Soft grid background for hero */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+/* Gradient blob behind hero */
+.hero-blob {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.18), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+/* Pill badge */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: #ecfdf5;
+  color: var(--brand);
+  border: 1px solid #a7f3d0;
+}
+
+/* Primary button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--brand);
+  color: #ffffff;
+  border: 1px solid var(--brand);
+  transition: background 150ms ease;
+}
+.btn-primary:hover {
+  background: var(--brand-hover);
+}
+
+/* Secondary button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.btn-secondary:hover {
+  border-color: #94a3b8;
+  background: var(--bg-soft);
+}
+
+/* Nav link underline */
+.nav-link {
+  position: relative;
+  color: var(--ink-2);
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: var(--ink);
+}
+.nav-link.active {
+  color: var(--brand);
+}
+
+/* Form inputs */
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--ink);
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.input:focus,
+.input:focus-visible {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.18);
+}
+.input::placeholder {
+  color: #94a3b8;
+}
+textarea.input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Native <select> with custom chevron — matches input styling */
+select.input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 30px;
+}
+
+/* Section heading rhythm */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+/* Hide scrollbar nicely on horizontal scrollers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}

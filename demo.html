@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book a demo — Pharmasuticals</title>
+    <meta
+      name="description"
+      content="Book a 30-minute Pharmasuticals walkthrough. Bring your real business data — we'll show it land cleanly."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <!-- Nav -->
+    <header class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200/70">
+      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <span class="logo-mark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <g transform="rotate(-35 12 12)"><rect x="1" y="8" width="22" height="8" rx="4" /><line x1="12" y1="8" x2="12" y2="16" /></g>
+            </svg>
+          </span>
+          <span class="font-semibold text-slate-900 tracking-tight">Pharmasuticals</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="features.html" class="nav-link">Features</a>
+          <a href="early-access.html" class="nav-link">Early access</a>
+          <a href="index.html#compliance" class="nav-link">Compliance</a>
+          <a href="demo.html" class="nav-link active">Book demo</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <section class="bg-slate-50 border-b border-slate-200">
+      <div class="max-w-5xl mx-auto px-6 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <!-- Left column · pitch + steps -->
+        <div class="lg:col-span-2">
+          <p class="eyebrow">Book a demo</p>
+          <h1 class="mt-2 text-4xl font-semibold tracking-tight text-slate-900 leading-tight">
+            See it run on your data.
+          </h1>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            30-minute walkthrough scoped to your line of business. Bring your messiest stock count,
+            most-disputed customer ledger, or your last GSTR — we&apos;ll show it land cleanly.
+          </p>
+
+          <ul class="mt-8 space-y-5">
+            <li class="flex items-start gap-3">
+              <span class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-semibold flex-shrink-0">1</span>
+              <div>
+                <p class="font-medium text-slate-900">Tell us about your setup</p>
+                <p class="text-sm text-slate-600 mt-0.5">Branches, team size, and what you&apos;re running today.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-semibold flex-shrink-0">2</span>
+              <div>
+                <p class="font-medium text-slate-900">We schedule within 24h</p>
+                <p class="text-sm text-slate-600 mt-0.5">A calendar link arrives at the email you provide — pick a slot that works.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-semibold flex-shrink-0">3</span>
+              <div>
+                <p class="font-medium text-slate-900">Live walkthrough · 30 min</p>
+                <p class="text-sm text-slate-600 mt-0.5">No slides — we open the app, run your scenarios, answer everything.</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="mt-10 p-5 bg-white border border-slate-200 rounded-xl">
+            <p class="text-xs uppercase tracking-wider text-slate-500">Prefer email?</p>
+            <a href="mailto:hello@pharmasuticals.com" class="mt-2 inline-block text-sm font-medium text-emerald-700 hover:text-emerald-800">
+              hello@pharmasuticals.com →
+            </a>
+          </div>
+        </div>
+
+        <!-- Right column · form -->
+        <div class="lg:col-span-3">
+          <div class="bg-white border border-slate-200 rounded-2xl p-7 md:p-8 shadow-sm">
+            <h2 class="text-lg font-semibold text-slate-900">Request a demo</h2>
+            <p class="mt-1 text-sm text-slate-600">We&apos;ll respond within one business day.</p>
+
+            <!--
+              FORM ACTION:
+              Posts to FormSubmit.co which forwards to hello@pharmasuticals.com.
+              First submission triggers a one-time activation email — click the
+              link inside it and all future submissions arrive automatically.
+              No signup, no API keys.
+            -->
+            <form
+              id="demoForm"
+              action="https://formsubmit.co/hello@pharmasuticals.com"
+              method="POST"
+              class="mt-6 space-y-4"
+            >
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label for="name" class="block text-xs font-medium text-slate-700 mb-1.5">
+                    Your name
+                  </label>
+                  <input id="name" name="name" type="text" required class="input" placeholder="Jane Doe" />
+                </div>
+                <div>
+                  <label for="company" class="block text-xs font-medium text-slate-700 mb-1.5">
+                    Company
+                  </label>
+                  <input id="company" name="company" type="text" required class="input" placeholder="One Distribution Pvt Ltd" />
+                </div>
+                <div>
+                  <label for="email" class="block text-xs font-medium text-slate-700 mb-1.5">
+                    Work email
+                  </label>
+                  <input id="email" name="email" type="email" required class="input" placeholder="you@company.com" />
+                </div>
+                <div>
+                  <label for="phone" class="block text-xs font-medium text-slate-700 mb-1.5">
+                    Mobile
+                  </label>
+                  <div class="flex">
+                    <select
+                      id="phone_country"
+                      name="phone_country"
+                      autocomplete="off"
+                      class="input rounded-r-none border-r-0 bg-slate-50 max-w-[110px] flex-shrink-0"
+                      aria-label="Country code"
+                    >
+                      <option value="+91" selected>🇮🇳 +91</option>
+                      <option value="+1">🇺🇸 +1</option>
+                      <option value="+44">🇬🇧 +44</option>
+                      <option value="+61">🇦🇺 +61</option>
+                      <option value="+65">🇸🇬 +65</option>
+                      <option value="+971">🇦🇪 +971</option>
+                      <option value="+966">🇸🇦 +966</option>
+                      <option value="+974">🇶🇦 +974</option>
+                      <option value="+965">🇰🇼 +965</option>
+                      <option value="+973">🇧🇭 +973</option>
+                      <option value="+968">🇴🇲 +968</option>
+                      <option value="+880">🇧🇩 +880</option>
+                      <option value="+94">🇱🇰 +94</option>
+                      <option value="+977">🇳🇵 +977</option>
+                      <option value="+975">🇧🇹 +975</option>
+                      <option value="+60">🇲🇾 +60</option>
+                      <option value="+66">🇹🇭 +66</option>
+                      <option value="+81">🇯🇵 +81</option>
+                      <option value="+49">🇩🇪 +49</option>
+                      <option value="+33">🇫🇷 +33</option>
+                    </select>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      inputmode="numeric"
+                      autocomplete="tel-national"
+                      pattern="[0-9\s]{6,15}"
+                      minlength="6"
+                      maxlength="15"
+                      title="Enter your mobile number (6–15 digits)"
+                      class="input rounded-l-none flex-1"
+                      placeholder="98765 43210"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label for="city" class="block text-xs font-medium text-slate-700 mb-1.5">
+                    Primary city
+                  </label>
+                  <input id="city" name="city" type="text" required class="input" placeholder="Bengaluru / Mumbai / Delhi…" />
+                </div>
+                <div>
+                  <label for="role" class="block text-xs font-medium text-slate-700 mb-1.5">
+                    I am a…
+                  </label>
+                  <select id="role" name="role" required class="input">
+                    <option value="">Select…</option>
+                    <option value="manufacturer">Manufacturer</option>
+                    <option value="distributor">Distributor</option>
+                    <option value="retailer">Retailer</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Role-specific questions — only one group is enabled at a time -->
+              <div data-role-group="manufacturer" hidden>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label for="production_sites" class="block text-xs font-medium text-slate-700 mb-1.5">Production sites</label>
+                    <select id="production_sites" name="production_sites" disabled class="input">
+                      <option value="">Select…</option>
+                      <option>1 site</option>
+                      <option>2–3 sites</option>
+                      <option>4+ sites</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="distributor_network" class="block text-xs font-medium text-slate-700 mb-1.5">Distributor network</label>
+                    <select id="distributor_network" name="distributor_network" disabled class="input">
+                      <option value="">Select…</option>
+                      <option>Under 50 distributors</option>
+                      <option>50–200 distributors</option>
+                      <option>200+ distributors</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div data-role-group="distributor" hidden>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label for="branches" class="block text-xs font-medium text-slate-700 mb-1.5">Branches</label>
+                    <select id="branches" name="branches" disabled class="input">
+                      <option value="">Select…</option>
+                      <option>1 branch</option>
+                      <option>2–3 branches</option>
+                      <option>4–10 branches</option>
+                      <option>10+ branches</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="mrs" class="block text-xs font-medium text-slate-700 mb-1.5">Medical reps on payroll</label>
+                    <select id="mrs" name="mrs" disabled class="input">
+                      <option value="">Select…</option>
+                      <option>None</option>
+                      <option>1–5</option>
+                      <option>6–20</option>
+                      <option>20+</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div data-role-group="retailer" hidden>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label for="stores" class="block text-xs font-medium text-slate-700 mb-1.5">Stores / outlets</label>
+                    <select id="stores" name="stores" disabled class="input">
+                      <option value="">Select…</option>
+                      <option>1 store</option>
+                      <option>2–5 stores</option>
+                      <option>6–15 stores</option>
+                      <option>15+ stores</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="daily_bills" class="block text-xs font-medium text-slate-700 mb-1.5">Counter bills per day (approx)</label>
+                    <select id="daily_bills" name="daily_bills" disabled class="input">
+                      <option value="">Select…</option>
+                      <option>Under 50 / day</option>
+                      <option>50–200 / day</option>
+                      <option>200+ / day</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label for="current" class="block text-xs font-medium text-slate-700 mb-1.5">
+                  What are you running today? (optional)
+                </label>
+                <input id="current" name="current_system" type="text" class="input" placeholder="Legacy ERP, spreadsheets, custom build, or nothing yet…" />
+              </div>
+
+              <div>
+                <label for="message" class="block text-xs font-medium text-slate-700 mb-1.5">
+                  Anything specific you want covered? (optional)
+                </label>
+                <textarea id="message" name="message" class="input" placeholder="E.g. how does Sch.X register work? Can MRs use this on mobile? How does the recall workflow trigger?"></textarea>
+              </div>
+
+              <!-- FormSubmit controls -->
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+              <input type="hidden" name="_subject" value="New demo request · pharmasuticals.com" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+
+              <button type="submit" class="btn-primary w-full justify-center mt-2">
+                Request demo
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              <p class="text-xs text-slate-500 text-center mt-1">
+                We&apos;ll only use this to schedule your demo. No newsletter, no resale.
+              </p>
+            </form>
+
+            <!-- Success state — hidden until form submits -->
+            <div id="demoSuccess" class="hidden mt-6 p-5 bg-emerald-50 border border-emerald-200 rounded-xl text-center">
+              <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <p class="mt-3 font-semibold text-emerald-900">Got it — we&apos;ll be in touch within 24h.</p>
+              <p class="mt-1 text-sm text-emerald-800">A calendar invite will land in your inbox shortly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+        <div class="col-span-2">
+          <div class="flex items-center gap-2.5">
+            <span class="logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <g transform="rotate(-35 12 12)"><rect x="1" y="8" width="22" height="8" rx="4" /><line x1="12" y1="8" x2="12" y2="16" /></g>
+              </svg>
+            </span>
+            <span class="font-semibold text-slate-900 tracking-tight">Pharmasuticals</span>
+          </div>
+          <p class="mt-3 text-slate-600 max-w-sm">
+            The modern ERP for India&apos;s pharma trade — manufacturers, distributors, retailers.
+            One platform.
+          </p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-wider text-slate-500 mb-3">Product</p>
+          <ul class="space-y-2">
+            <li><a href="features.html" class="text-slate-700 hover:text-slate-900">Features</a></li>
+            <li><a href="early-access.html" class="text-slate-700 hover:text-slate-900">Early access</a></li>
+            <li><a href="demo.html" class="text-slate-700 hover:text-slate-900">Book a demo</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-wider text-slate-500 mb-3">Contact</p>
+          <ul class="space-y-2">
+            <li><a href="mailto:hello@pharmasuticals.com" class="text-slate-700 hover:text-slate-900">hello@pharmasuticals.com</a></li>
+            <li><span class="text-slate-700">India, End to End</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+          <span>© 2026 Pharmasuticals. All rights reserved.</span>
+          <span class="inline-flex items-center gap-1.5">Built for
+            <span class="inline-flex rounded-[2px] overflow-hidden border border-slate-300/60 align-middle" style="line-height:0" aria-label="India">
+              <svg width="22" height="14" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                <rect width="30" height="6.67" fill="#FF9933"/>
+                <rect y="6.67" width="30" height="6.66" fill="#FFFFFF"/>
+                <rect y="13.33" width="30" height="6.67" fill="#138808"/>
+                <circle cx="15" cy="10" r="2.2" fill="none" stroke="#000080" stroke-width="0.5"/>
+                <line x1="12.8" y1="10" x2="17.2" y2="10" stroke="#000080" stroke-width="0.3"/>
+                <line x1="15" y1="7.8" x2="15" y2="12.2" stroke="#000080" stroke-width="0.3"/>
+                <line x1="13.45" y1="8.45" x2="16.55" y2="11.55" stroke="#000080" stroke-width="0.3"/>
+                <line x1="13.45" y1="11.55" x2="16.55" y2="8.45" stroke="#000080" stroke-width="0.3"/>
+              </svg>
+            </span>
+            pharma trade.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- AJAX submit so we get JSON back and can show in-page success -->
+    <script>
+      (function () {
+        const form = document.getElementById("demoForm")
+        const success = document.getElementById("demoSuccess")
+        if (!form || !success) return
+        // FormSubmit AJAX endpoint — same path but under /ajax/, returns JSON.
+        const ajaxAction = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/")
+
+        // Per-country phone rules — pattern, length bounds, placeholder, hint
+        const PHONE_RULES = {
+          "+91":  { pattern: "[6-9][0-9]{9}",    min: 10, max: 10, placeholder: "98765 43210",   hint: "10 digits starting with 6, 7, 8, or 9" },
+          "+1":   { pattern: "[2-9][0-9]{9}",    min: 10, max: 10, placeholder: "555 123 4567",  hint: "10 digits" },
+          "+44":  { pattern: "7[0-9]{9}",        min: 10, max: 10, placeholder: "7700 900123",   hint: "10 digits starting with 7" },
+          "+61":  { pattern: "4[0-9]{8}",        min: 9,  max: 9,  placeholder: "412 345 678",   hint: "9 digits starting with 4" },
+          "+65":  { pattern: "[89][0-9]{7}",     min: 8,  max: 8,  placeholder: "8123 4567",     hint: "8 digits starting with 8 or 9" },
+          "+971": { pattern: "5[0-9]{8}",        min: 9,  max: 9,  placeholder: "50 123 4567",   hint: "9 digits starting with 5" },
+          "+966": { pattern: "5[0-9]{8}",        min: 9,  max: 9,  placeholder: "50 123 4567",   hint: "9 digits starting with 5" },
+          "+974": { pattern: "[3567][0-9]{7}",   min: 8,  max: 8,  placeholder: "3312 3456",     hint: "8 digits starting with 3, 5, 6, or 7" },
+          "+965": { pattern: "[569][0-9]{7}",    min: 8,  max: 8,  placeholder: "9000 0000",     hint: "8 digits starting with 5, 6, or 9" },
+          "+973": { pattern: "[36][0-9]{7}",     min: 8,  max: 8,  placeholder: "3600 1234",     hint: "8 digits starting with 3 or 6" },
+          "+968": { pattern: "[79][0-9]{7}",     min: 8,  max: 8,  placeholder: "9000 0000",     hint: "8 digits starting with 7 or 9" },
+          "+880": { pattern: "1[0-9]{9}",        min: 10, max: 10, placeholder: "1712 345678",   hint: "10 digits starting with 1" },
+          "+94":  { pattern: "7[0-9]{8}",        min: 9,  max: 9,  placeholder: "71 234 5678",   hint: "9 digits starting with 7" },
+          "+977": { pattern: "9[0-9]{9}",        min: 10, max: 10, placeholder: "98 1234 5678",  hint: "10 digits starting with 9" },
+          "+975": { pattern: "[17][0-9]{7}",     min: 8,  max: 8,  placeholder: "17 123 456",    hint: "8 digits starting with 1 or 7" },
+          "+60":  { pattern: "1[0-9]{8,9}",      min: 9,  max: 10, placeholder: "12 345 6789",   hint: "9–10 digits starting with 1" },
+          "+66":  { pattern: "[689][0-9]{8}",    min: 9,  max: 9,  placeholder: "81 234 5678",   hint: "9 digits starting with 6, 8, or 9" },
+          "+81":  { pattern: "[789]0[0-9]{8}",   min: 10, max: 10, placeholder: "90 1234 5678",  hint: "10 digits starting with 70, 80, or 90" },
+          "+49":  { pattern: "1[5-7][0-9]{8,9}", min: 10, max: 11, placeholder: "1512 3456789",  hint: "10–11 digits starting with 15, 16, or 17" },
+          "+33":  { pattern: "[67][0-9]{8}",     min: 9,  max: 9,  placeholder: "6 12 34 56 78", hint: "9 digits starting with 6 or 7" },
+        }
+
+        // Apply per-country validation + placeholder to the phone input
+        function syncPhoneRules() {
+          const code = form.elements.phone_country && form.elements.phone_country.value
+          const phone = form.elements.phone
+          if (!code || !phone) return
+          const rule = PHONE_RULES[code] || { pattern: "[0-9]{6,15}", min: 6, max: 15, placeholder: "Mobile number", hint: "6 to 15 digits" }
+          phone.pattern = rule.pattern
+          phone.minLength = rule.min
+          phone.maxLength = rule.max
+          phone.placeholder = rule.placeholder
+          phone.title = "Enter a valid mobile number — " + rule.hint
+          phone.setCustomValidity("")
+        }
+        if (form.elements.phone_country) {
+          // Force India as default on every page load (overrides browser session memory)
+          form.elements.phone_country.value = "+91"
+          form.elements.phone_country.addEventListener("change", syncPhoneRules)
+          syncPhoneRules()
+        }
+
+        // Strip non-digit characters as user types — keeps input pattern-clean
+        if (form.elements.phone) {
+          form.elements.phone.addEventListener("input", function (e) {
+            const cleaned = e.target.value.replace(/\D/g, "")
+            if (cleaned !== e.target.value) {
+              const pos = Math.max(0, e.target.selectionStart - (e.target.value.length - cleaned.length))
+              e.target.value = cleaned
+              try { e.target.setSelectionRange(pos, pos) } catch (_) {}
+            }
+          })
+        }
+
+        // Show role-specific question group based on the role select
+        function syncRoleFields() {
+          const role = (form.elements.role && form.elements.role.value) || ""
+          form.querySelectorAll("[data-role-group]").forEach(function (group) {
+            const active = group.dataset.roleGroup === role
+            group.hidden = !active
+            group.querySelectorAll("select, input, textarea").forEach(function (el) {
+              el.disabled = !active
+              if (active) el.required = true
+              else el.removeAttribute("required")
+            })
+          })
+        }
+        if (form.elements.role) {
+          form.elements.role.addEventListener("change", syncRoleFields)
+          syncRoleFields()
+        }
+
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault()
+          const data = new FormData(form)
+          // Combine country code + phone into a single relayed field
+          const code = data.get("phone_country") || "+91"
+          const phone = data.get("phone")
+          if (phone) {
+            data.set("phone", String(code).trim() + " " + String(phone).trim())
+          }
+          data.delete("phone_country")
+          try {
+            const res = await fetch(ajaxAction, {
+              method: "POST",
+              body: data,
+              headers: { Accept: "application/json" },
+            })
+            if (res.ok) {
+              form.classList.add("hidden")
+              success.classList.remove("hidden")
+              success.scrollIntoView({ behavior: "smooth", block: "center" })
+            } else {
+              alert("Something went wrong. Please email hello@pharmasuticals.com instead.")
+            }
+          } catch (err) {
+            alert("Network error. Please email hello@pharmasuticals.com instead.")
+          }
+        })
+      })()
+    </script>
+  </body>
+</html>
