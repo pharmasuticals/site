@@ -87,14 +87,13 @@
 
             <!--
               FORM ACTION:
-              Posts to FormSubmit.co which forwards to hello@pharmasuticals.com.
-              First submission triggers a one-time activation email — click the
-              link inside it and all future submissions arrive automatically.
-              No signup, no API keys.
+              Posts to Web3Forms which forwards to hello@pharmasuticals.com.
+              Get a free access key at https://web3forms.com (one email signup)
+              and replace d4dffaad-7b7f-40e1-8086-b481b89f9a2a below.
             -->
             <form
               id="demoForm"
-              action="https://formsubmit.co/hello@pharmasuticals.com"
+              action="https://api.web3forms.com/submit"
               method="POST"
               class="mt-6 space-y-4"
             >
@@ -272,11 +271,11 @@
                 <textarea id="message" name="message" class="input" placeholder="E.g. how does Sch.X register work? Can MRs use this on mobile? How does the recall workflow trigger?"></textarea>
               </div>
 
-              <!-- FormSubmit controls -->
-              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-              <input type="hidden" name="_subject" value="New demo request · pharmasuticals.com" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
+              <!-- Web3Forms controls -->
+              <input type="hidden" name="access_key" value="d4dffaad-7b7f-40e1-8086-b481b89f9a2a" />
+              <input type="hidden" name="subject" value="New demo request · pharmasuticals.com" />
+              <input type="hidden" name="from_name" value="Pharmasuticals website" />
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" />
 
               <button type="submit" class="btn-primary w-full justify-center mt-2">
                 Request demo
@@ -365,8 +364,8 @@
         const form = document.getElementById("demoForm")
         const success = document.getElementById("demoSuccess")
         if (!form || !success) return
-        // FormSubmit AJAX endpoint — same path but under /ajax/, returns JSON.
-        const ajaxAction = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/")
+        // Web3Forms accepts AJAX at the same URL when `Accept: application/json` is sent
+        const ajaxAction = form.action
 
         // Per-country phone rules — pattern, length bounds, placeholder, hint
         const PHONE_RULES = {
@@ -458,15 +457,16 @@
               body: data,
               headers: { Accept: "application/json" },
             })
-            if (res.ok) {
+            const json = await res.json().catch(() => ({}))
+            if (res.ok && json.success !== false) {
               form.classList.add("hidden")
               success.classList.remove("hidden")
               success.scrollIntoView({ behavior: "smooth", block: "center" })
             } else {
-              alert("Something went wrong. Please email hello@pharmasuticals.com instead.")
+              alert("Something went wrong submitting the form. Please email hello@pharmasuticals.com directly.")
             }
           } catch (err) {
-            alert("Network error. Please email hello@pharmasuticals.com instead.")
+            alert("Couldn't reach the form service. Please email hello@pharmasuticals.com directly.")
           }
         })
       })()

@@ -200,14 +200,13 @@
         <div class="mt-10 bg-white border border-slate-200 rounded-2xl p-7 md:p-8 shadow-sm">
           <!--
             FORM ACTION:
-            Posts to FormSubmit.co which forwards to hello@pharmasuticals.com.
-            First submission triggers a one-time activation email — click the
-            link inside it and all future submissions arrive automatically.
-            No signup, no API keys.
+            Posts to Web3Forms which forwards to hello@pharmasuticals.com.
+            Get a free access key at https://web3forms.com (one email signup)
+            and replace d4dffaad-7b7f-40e1-8086-b481b89f9a2a below.
           -->
           <form
             id="interestForm"
-            action="https://formsubmit.co/hello@pharmasuticals.com"
+            action="https://api.web3forms.com/submit"
             method="POST"
             class="space-y-4"
           >
@@ -369,11 +368,11 @@
               <textarea id="why" name="why" class="input" placeholder="E.g. compliance audit prep, MR productivity, branch sync, cold-chain monitoring…"></textarea>
             </div>
 
-            <!-- FormSubmit controls -->
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-            <input type="hidden" name="_subject" value="New interest registration · pharmasuticals.com" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
+            <!-- Web3Forms controls -->
+            <input type="hidden" name="access_key" value="d4dffaad-7b7f-40e1-8086-b481b89f9a2a" />
+            <input type="hidden" name="subject" value="New interest registration · pharmasuticals.com" />
+            <input type="hidden" name="from_name" value="Pharmasuticals website" />
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" />
 
             <button type="submit" class="btn-primary w-full justify-center mt-2">
               Register my interest
@@ -461,8 +460,8 @@
         const form = document.getElementById("interestForm")
         const success = document.getElementById("interestSuccess")
         if (!form || !success) return
-        // FormSubmit AJAX endpoint — same path but under /ajax/, returns JSON.
-        const ajaxAction = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/")
+        // Web3Forms accepts AJAX at the same URL when `Accept: application/json` is sent
+        const ajaxAction = form.action
 
         // Per-country phone rules — pattern, length bounds, placeholder, hint
         const PHONE_RULES = {
@@ -538,8 +537,8 @@
           syncRoleFields()
         }
 
-        // FormSubmit blocks submissions from localhost — short-circuit to a
-        // simulated success state so the dev preview shows the full UX.
+        // On localhost we short-circuit to a simulated success state so the
+        // dev preview shows the full UX without consuming the form quota.
         const isLocalDev =
           location.hostname === "localhost" ||
           location.hostname === "127.0.0.1" ||
@@ -570,7 +569,8 @@
               body: data,
               headers: { Accept: "application/json" },
             })
-            if (res.ok) {
+            const json = await res.json().catch(() => ({}))
+            if (res.ok && json.success !== false) {
               form.classList.add("hidden")
               success.classList.remove("hidden")
               success.scrollIntoView({ behavior: "smooth", block: "center" })

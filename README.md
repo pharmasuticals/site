@@ -10,7 +10,7 @@ Tailwind via CDN. Deploys to GitHub Pages out of the box.
 | `/`                    | `index.html`          | Landing — hero, 6 differentials, compliance, pre-launch CTA |
 | `/features.html`       | `features.html`       | Module-by-module feature breakdown                          |
 | `/early-access.html`   | `early-access.html`   | Register-interest page · what you get + launch timeline + form |
-| `/demo.html`           | `demo.html`           | Book-a-demo form (FormSubmit → hello@pharmasuticals.com)    |
+| `/demo.html`           | `demo.html`           | Book-a-demo form (Web3Forms → hello@pharmasuticals.com)     |
 | `/404.html`            | `404.html`            | Friendly fallback for unknown routes                        |
 
 ## Local preview
@@ -27,30 +27,30 @@ npx serve .
 
 Then visit `http://localhost:4000`.
 
-## Forms (zero setup)
+## Forms (1-minute setup)
 
 Both the **interest registration** (`early-access.html`) and the **demo request** (`demo.html`)
-forms post to [FormSubmit.co](https://formsubmit.co) — no signup, no API keys. Submissions arrive
-as nicely-formatted emails at **hello@pharmasuticals.com**.
+forms post to [Web3Forms](https://web3forms.com), which relays submissions to
+**hello@pharmasuticals.com** as nicely-formatted emails.
 
-**One-time activation** (the first time someone submits, you'll get an email like this):
+**One-time setup:**
 
-1. Anyone submits either form → FormSubmit sends an activation email to
-   `hello@pharmasuticals.com` titled "Confirm your email".
-2. Click the **Activate** link inside it.
-3. Done — all future submissions arrive automatically, formatted as a table.
+1. Go to [web3forms.com](https://web3forms.com).
+2. Enter `hello@pharmasuticals.com` → click **Create Access Key**.
+3. Check that inbox — Web3Forms emails the access key (UUID-style string).
+4. Open both `early-access.html` and `demo.html`, find:
+   ```html
+   <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+   ```
+   Replace `YOUR_WEB3FORMS_ACCESS_KEY` with the actual key.
+5. Submit a test from your local preview to confirm the email lands.
 
-Built-in spam protection (honeypot field), 1000 submissions/month on the free tier.
+Free tier: 250 submissions/month. Built-in honeypot (`botcheck` field) for spam protection.
 
 ### Want to change the destination email?
 
-Edit the form `action` URL in both `early-access.html` and `demo.html`:
-
-```html
-<form action="https://formsubmit.co/your-new-address@domain.com" method="POST">
-```
-
-You'll need to re-activate the new address on first submission.
+You'll need a new access key from web3forms.com for the new email address — they're 1:1 bound.
+Repeat the steps above with the new address.
 
 ## Deploy to GitHub Pages
 
@@ -105,7 +105,7 @@ pharmasuticals-site/
 ├── index.html             # Landing · 6 differentials + pre-launch CTA
 ├── features.html          # Full feature breakdown
 ├── early-access.html      # Register-interest page + launch timeline
-├── demo.html              # Book a demo (FormSubmit relay)
+├── demo.html              # Book a demo (Web3Forms relay)
 ├── 404.html               # Not-found fallback
 ├── .nojekyll              # Tells GitHub Pages to skip Jekyll
 ├── assets/
